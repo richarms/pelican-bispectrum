@@ -39,7 +39,7 @@
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 
 # === Set the project name (creates name_BINARY_DIR and name_SOURCE_DIR).
-project(pelican CXX C)
+project(pelican-bispectrum CXX C)
 
 # === Project version.
 set(${PROJECT_NAME}_MAJOR_VERSION 0)
@@ -90,7 +90,7 @@ include(compilerDefaults)
 include(dependencies)
 #_PELICAN_PIC()
 
-#message(STATUS "BUILD_STATIC = ${BUILD_STATIC}")
+message(STATUS "BUILD_STATIC = ${BUILD_STATIC}")
 list(INSERT CMAKE_MODULE_PATH 0 "/usr/local/bang")
 #include(bang)
 #BANG_VERSION(0.1)
@@ -102,7 +102,7 @@ if(QT_VERSION_MINOR LESS 3)
 endif(QT_VERSION_MINOR LESS 3)
 
 # Declare project libraries to be created from the following subpackages.
-DECLARE_PROJECT_LIBRARY(pelican
+DECLARE_PROJECT_LIBRARY(pelican-bispectrum
     comms core data emulator modules output server utility viewer)
 
 DECLARE_PROJECT_LIBRARY(pelican-testutils
@@ -112,11 +112,11 @@ DECLARE_PROJECT_LIBRARY(pelican-testutils
 include(modules.cmake)
 
 # Project libraries to produce.
-CREATE_PROJECT_LIBRARY(pelican)
+CREATE_PROJECT_LIBRARY(pelican-bispectrum)
 CREATE_PROJECT_LIBRARY(pelican-testutils)
 if(BUILD_SINGLE_LIB)
     target_link_libraries(pelican-testutils
-        pelican)
+        pelican-bispectrum)
 endif(BUILD_SINGLE_LIB)
 
 # === Doxygen documentation targets.
