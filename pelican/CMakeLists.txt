@@ -105,15 +105,15 @@ endif(QT_VERSION_MINOR LESS 3)
 DECLARE_PROJECT_LIBRARY(pelican-bispectrum
     comms core data emulator modules output server utility viewer)
 
-DECLARE_PROJECT_LIBRARY(pelican-testutils
-    utilityTest viewerTest outputTest dataTest coreTest serverTest emulatorTest)
+#DECLARE_PROJECT_LIBRARY(pelican-testutils
+#    utilityTest viewerTest outputTest dataTest coreTest serverTest emulatorTest)
 
 # === Sub modules (recurse into sub-directories to build modules).
 include(modules.cmake)
 
 # Project libraries to produce.
 CREATE_PROJECT_LIBRARY(pelican-bispectrum)
-CREATE_PROJECT_LIBRARY(pelican-testutils)
+#CREATE_PROJECT_LIBRARY(pelican-testutils)
 if(BUILD_SINGLE_LIB)
     target_link_libraries(pelican-testutils
         pelican-bispectrum)
