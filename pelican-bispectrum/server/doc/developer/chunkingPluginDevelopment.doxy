@@ -1,0 +1,23 @@
+/**
+@page dev_server_chunkingPluginDevelopment The Chunking Plugin Framework
+
+@section overviewChunking Overview of Chunking system
+
+The chunking plugin modules are driven by the DataReceiver class.
+This DataReceiver class is responsible for setting up the connection and
+calling the chunking plug-in whenever there is new data available.
+
+@subsection chunkerWriting Writing A New Chunker
+
+New chunking algorithms should inherit from the AbstractChunker class.
+
+@subsubsection chunkerAbsMethods Required Implementation
+Whenever data arrives on an incoming socket, the virtual method
+
+@code
+next(QIODevice*)
+@endcode
+
+is called.
+
+*/
