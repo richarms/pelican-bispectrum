@@ -13,13 +13,13 @@ set(bispectrum_src
     reference/src/EmulatorExample.cpp
     reference/src/ModuleExample.cpp
     reference/src/PipelineExample.cpp
-    bp/src/OutputStreamExample.cpp
-    bp/src/SignalAmplifier.cpp
-    bp/src/SignalChunker.cpp
-    bp/src/SignalData.cpp
-    bp/src/SignalDataAdapter.cpp
-    bp/src/SignalEmulator.cpp
-    bp/src/SignalProcessingPipeline.cpp
+    src/OutputStreamExample.cpp
+    src/SignalAmplifier.cpp
+    src/SignalChunker.cpp
+    src/SignalData.cpp
+    src/SignalDataAdapter.cpp
+    src/SignalEmulator.cpp
+    src/SignalProcessingPipeline.cpp
 )
 add_library(bispectrum ${bispectrum_src})
 target_link_libraries(bispectrum
@@ -28,7 +28,7 @@ target_link_libraries(bispectrum
 
 # Create the pipeline binary.
 add_executable(signalPipeline
-    bp/src/mainPipeline.cpp
+    src/mainPipeline.cpp
 )
 target_link_libraries(signalPipeline
     ${SUBPACKAGE_LIBRARIES}
@@ -37,7 +37,7 @@ target_link_libraries(signalPipeline
 
 # Create the server binary.
 add_executable(signalServer
-    bp/src/mainServer.cpp
+    src/mainServer.cpp
 )
 target_link_libraries(signalServer
     ${SUBPACKAGE_LIBRARIES}
@@ -46,7 +46,7 @@ target_link_libraries(signalServer
 
 # Create the emulator binary.
 add_executable(signalEmulator
-    bp/src/mainEmulator.cpp
+    src/mainEmulator.cpp
 )
 target_link_libraries(signalEmulator
     ${SUBPACKAGE_LIBRARIES}
@@ -55,5 +55,5 @@ target_link_libraries(signalEmulator
 
 # Copy the XML configuration files needed for the bp.
 include(CopyFiles)
-copy_files(${CMAKE_CURRENT_SOURCE_DIR}/bp/data/*.xml . exampleXML)
-copy_files(${CMAKE_CURRENT_SOURCE_DIR}/bp/data/plotScript.gnu . plotScript.gnu)
+copy_files(${CMAKE_CURRENT_SOURCE_DIR}/data/*.xml . exampleXML)
+copy_files(${CMAKE_CURRENT_SOURCE_DIR}/data/plotScript.gnu . plotScript.gnu)
